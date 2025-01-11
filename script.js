@@ -1,51 +1,50 @@
-/* 
-Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula: BMI = mass / (height * height) (mass in kg and height in meters).
+// var a = "nameless"
+// let b = "pls declare"
+// function loud(){
+//     if(true){
+//          a = "Ahmad";
+//          b = "Rana";
+//         // console.log(a, "this is var0")
+//         // console.log(b, "this is let0")
+//     }
+//     // console.log(a , "this is var")
+//     // console.log(b, "this is let")
+// }
 
-Your task is to write some code to help them:
-
-Store Mark's and John's mass and height in variables called massMark, heightMark, massJohn and heightJohn.
-
-Calculate both their BMIs using the formula, and store the results in two variables called BMIMark and BMIJohn.
-
-Log the value of BMIMark and BMIJohn to the console.
-
-BONUS: Create a boolean variable markHigherBMI containing information about whether Mark has a higher BMI than John. Log it to the console too
-
-TEST DATA 1: Marks weighs 78 kg and is 1.69 m tall. John weighs 92 kg and is 1.95 m tall.
-
-TEST DATA 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76 m tall.
-
+// console.log(a, "this is var1")
+// console.log(b, "this is let1")
 
 
-👋 OPTIONAL: You can watch my solution in video format in the next lecture
+// loud()
+
+// window.alert("working")
+
+// for (let i = 0; i < 5; i++) {
+//     console.log(i);
+// }
+
+// const saandInaam = {age: 26, name: "Hassan Inaam", job: "Customer Support", favouritePerson: "Rafia"};
+// console.log(saandInaam)
+
+// saandInaam.favouritePerson = "Nomi Dadra";
+// console.log(saandInaam)
 
 
+// console.log('Start');
 
-IMPORTANT: The ** operator is not supported in this editor. Please make sure to use exactly this formula mass / (height * height), and not this one mass / (height ** 2).
-*/
+// setTimeout(() => {
+//     console.log('This is asynchronous!');
+// }, 1000);
 
-
-
-let bmiMark;
-let bmiJohn;
-
-
-function bmiCalc(mass, height){
-
-    const bmi = mass / (height * height);
-    return bmi;
-
-}
+// console.log('End');
 
 
+console.log('Start');
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-let massMark = 78;
-let heightMark = 1.69;
-bmiMark = bmiCalc(massMark, heightMark);
-let massJohn = 92;
-let heightJohn = 1.95;
-bmiJohn = bmiCalc(massJohn, heightJohn);
+delay(1000).then(() => {
+    console.log('This is asynchronous!');
+});
 
-let markHigherBMI = bmiJohn > bmiMark ? "John's bmi is higher than mark" : "mark's bmi is heigher than john";
-console.log(markHigherBMI)
+console.log('End');
