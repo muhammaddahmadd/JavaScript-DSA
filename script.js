@@ -55,10 +55,54 @@
 // let num1 = 100;
 // console.log(num1 += 100)
 
-function check(){
+// function check(x){
 
-    const input = prompt("Enter anything you want...");
-    console.log(typeof input);
+    
+//     console.log(Object.prototype.toString.call(x));
+//     // console.log(x)
+//     return x;
+// }
+// const input = prompt("enter")
+
+
+// check(input)
+
+
+// const t = true;
+// const f = false;
+// // AND
+// console.log(t && f)// false
+// console.log(t && t)//true
+// console.log(f && t)//false
+// console.log(f && f) //false
+
+// // OR
+// console.log(t || f)// true
+// console.log(t || t)//true
+// console.log(f || t)//false
+// console.log(f || f) //false
+
+
+
+
+const day = prompt("Enter the day you would like to book your appointment:");
+
+switch(day) {
+    case "Monday":
+        console.log("Your appointment is on Monday at 10:00 AM");
+        break;
+    case "Tuesday":
+        console.log("Your appointment is on Tuesday  9 AM");
+        break;
+    case "Wednesday":
+        console.log("Your appointment is on Wednesday  12");
+        break;
+    case "Thursday":
+        console.log("Your appointment is on Monday at 10:00 AM");
+        break;
+    case "Friday":
+        console.log("Your appointment is on Friday0:00 AM");
+        break;
+        default:
+            console.log("invalid");
 }
-
-check()
