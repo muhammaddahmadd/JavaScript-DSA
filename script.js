@@ -1,108 +1,92 @@
-// // var a = "nameless"
-// // let b = "pls declare"
-// // function loud(){
-// //     if(true){
-// //          a = "Ahmad";
-// //          b = "Rana";
-// //         // console.log(a, "this is var0")
-// //         // console.log(b, "this is let0")
-// //     }
-// //     // console.log(a , "this is var")
-// //     // console.log(b, "this is let")
-// // }
+"use strict";
 
-// // console.log(a, "this is var1")
-// // console.log(b, "this is let1")
-
-
-// // loud()
-
-// // window.alert("working")
-
-// // for (let i = 0; i < 5; i++) {
-// //     console.log(i);
-// // }
-
-// // const saandInaam = {age: 26, name: "Hassan Inaam", job: "Customer Support", favouritePerson: "Rafia"};
-// // console.log(saandInaam)
-
-// // saandInaam.favouritePerson = "Nomi Dadra";
-// // console.log(saandInaam)
-
-
-// // console.log('Start');
-
-// // setTimeout(() => {
-// //     console.log('This is asynchronous!');
-// // }, 1000);
-
-// // console.log('End');
-
-
-// console.log('Start');
-
-// const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-// delay(1000).then(() => {
-//     console.log('This is asynchronous!');
-// });
-
-// console.log('End');
-                  
-// const abc = "Khan"
-// console.log(typeof abc)
-
-// let num1 = 100;
-// console.log(num1 += 100)
-
-// function check(x){
-
-    
-//     console.log(Object.prototype.toString.call(x));
-//     // console.log(x)
-//     return x;
+// const x = true;
+// if (x) {
+//     console.log(`x is true`)
 // }
-// const input = prompt("enter")
 
+// const let = 10;
 
-// check(input)
+// function ustad(){
+//     alert("Umer is millionaire")
+// }
 
+// ustad()
 
-// const t = true;
-// const f = false;
-// // AND
-// console.log(t && f)// false
-// console.log(t && t)//true
-// console.log(f && t)//false
-// console.log(f && f) //false
-
-// // OR
-// console.log(t || f)// true
-// console.log(t || t)//true
-// console.log(f || t)//false
-// console.log(f || f) //false
+// const calc = b => 2025 + b;
+// const value = calc(10) // 2035
+// console.log(value)
 
 
 
+// function calling another function;
+// const lengthCheck = function (name){
+//     return name.length;
+// }
 
-const day = prompt("Enter the day you would like to book your appointment:");
+// const degree = function (fn, email) {
+//     const fnL = lengthCheck(fn);
 
-switch(day) {
-    case "Monday":
-        console.log("Your appointment is on Monday at 10:00 AM");
-        break;
-    case "Tuesday":
-        console.log("Your appointment is on Tuesday  9 AM");
-        break;
-    case "Wednesday":
-        console.log("Your appointment is on Wednesday  12");
-        break;
-    case "Thursday":
-        console.log("Your appointment is on Monday at 10:00 AM");
-        break;
-    case "Friday":
-        console.log("Your appointment is on Friday0:00 AM");
-        break;
-        default:
-            console.log("invalid");
+
+//     return `${fn} has length of ${fnL} and the email is ${email}`
+// }
+
+// console.log(degree("Muhammad", "ranaahmad131@gmail.com"))
+
+
+// function yearsUntilRetirement ()
+
+/* 
+Back to the two gymnastics teams, the Dolphins and the Koalas! There is a new gymnastics discipline, which works differently.
+
+Each team competes 3 times, and then the average of the 3 scores is calculated (so one average score per team).
+
+A team only wins if it has at least double the average score of the other team. Otherwise, no team wins!
+
+
+
+Your tasks:
+
+Create an arrow function calcAverage to calculate the average of 3 scores. This function should have three parameters and return a single number (the average score).
+
+Create two new variables — scoreDolphins and scoreKoalas, and assign the value returned from the calcAverage function to them (you will need to call this function, and pass scores as arguments).
+
+Create a function checkWinner that takes the average score of each team as parameters (avgDolphins and avgKoalas), and then logs the winner to the console, together with the victory points, according to the rule above. Example: Koalas win (30 vs. 13) (use avgDolphins and avgKoalas instead of hard-coded values).
+
+Use the checkWinner function to determine the winner for both DATA 1 and DATA 2.
+
+Ignore draws this time. Instead, log No team wins... to the console if there is no winner.
+
+
+
+TEST DATA 1: Dolphins scored 44, 23, and 71. Koalas scored 65, 54, and 49.
+
+TEST DATA 2: Dolphins scored 85, 54, and 41. Koalas scored 23, 34, and 27.
+*/
+
+
+//test cleared
+const calcAverage = (a,b,c)=> {
+    return (a+b+c)/3
 }
+
+const scoreDolphins = calcAverage(85, 54, 41);
+const scoreKoalas = calcAverage(23, 34, 27);
+
+function checkWinner(avgDolphins, avgKoalas) {
+
+    if (avgDolphins >= avgKoalas * 2) {
+        console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`)
+    } else {
+        console.log("No team wins")
+    }
+} 
+
+checkWinner(scoreDolphins, scoreKoalas)
+
+const arr = ["ahmad", "umer", "khan"]
+arr[2] = "rana";
+console.log(arr.length)
+console.log(arr[arr.length - 1])
+
+
