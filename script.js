@@ -66,27 +66,133 @@ TEST DATA 2: Dolphins scored 85, 54, and 41. Koalas scored 23, 34, and 27.
 
 
 //test cleared
-const calcAverage = (a,b,c)=> {
-    return (a+b+c)/3
+// const calcAverage = (a,b,c)=> {
+//     return (a+b+c)/3
+// }
+
+// const scoreDolphins = calcAverage(85, 54, 41);
+// const scoreKoalas = calcAverage(23, 34, 27);
+
+// function checkWinner(avgDolphins, avgKoalas) {
+
+//     if (avgDolphins >= avgKoalas * 2) {
+//         console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`)
+//     } else {
+//         console.log("No team wins")
+//     }
+// } 
+
+// checkWinner(scoreDolphins, scoreKoalas)
+
+// const arr = ["ahmad", "umer", "khan"]
+// const pushed = arr.push("tarri")
+// console.log(pushed.length)
+// console.log(pushed)
+// console.log(arr)
+// // arr[2] = "rana";
+// // console.log(arr.length)
+// // console.log(arr[arr.length - 1])
+
+
+// const newArr = ['a', 'b', 'c', 'd']
+// newArr.unshift('e', 'f')
+// console.log(newArr)
+
+//challenge 2
+
+
+// const calcTip  = bill => bill >= 50 && bill <=300? bill * 15/100 : bill *20/100; 
+
+
+// const bills = [125, 555, 44];
+// const tips = [calcTip(bills)]
+// const tips = bills.map(calcTip);
+// const totals = [bills + tips for (bill, tip) of [bills, tips]]
+
+
+// const dev = {
+//     name: "ahmad",
+//     age: 25,
+//     skills: ["html", "css", "js"],
+//     level: 1,
+//     isPro: true
+// }
+
+// const getValue = prompt("Enter what you want to know abt ahmad:");
+// const value = dev[getValue];
+// console.log(value)
+// dev.married = false;
+// dev["sports"] = "football"
+// console.log(dev)
+
+
+
+
+
+
+// const lallis = {
+//     name : "mikaan",
+//     age: 27,
+//     // skills: alert("backchodii!!"),
+//     dob: 1998,
+//     isGay : true,
+//     married: false,
+//     calcAge : function(){
+//         return 2025 - dob;
+//     }
+// }
+
+// console.log(lallis.calcAge())
+// // console.log(lallis.calcAge(1990))
+// console.log(lallis["calcAge"](1998))
+
+
+// "Jonas is a 46-year old teacher, and he has a driver's license"
+
+// const jonas = {
+//     firstName: "Jonas",
+//     lastName : "Schmedmann",
+//     birthYear: 1991,
+//     job: "teacher",
+//     isMarried: false,
+//     calcAge: function(){
+//         this.age = 2025 - this.birthYear
+//         return this.age
+//     },
+//     friends: ["Michael", "Peter", "Steven"],
+//     hasDriversLic : true,
+//     getSummary: function(){
+//         return `${this.firstName} is ${this.calcAge()}old ${this.job}, and he ${this.hasDriversLic ? "has drivers license" : "doesn't have license"}`
+//     }
+
+// }
+
+
+
+// console.log(jonas.getSummary())
+
+
+
+const mark = {
+    fullName: "Mark Miller",
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi
+    }
+}
+const john = {
+    fullName: "John Smith",
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        this.bmi = this.mass / (this.height * this.height)
+        return this.bmi
+    }
 }
 
-const scoreDolphins = calcAverage(85, 54, 41);
-const scoreKoalas = calcAverage(23, 34, 27);
-
-function checkWinner(avgDolphins, avgKoalas) {
-
-    if (avgDolphins >= avgKoalas * 2) {
-        console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`)
-    } else {
-        console.log("No team wins")
-    }
-} 
-
-checkWinner(scoreDolphins, scoreKoalas)
-
-const arr = ["ahmad", "umer", "khan"]
-arr[2] = "rana";
-console.log(arr.length)
-console.log(arr[arr.length - 1])
-
-
+console.log(john.calcBMI())
+console.log(mark.calcBMI())
+console.log(`${john.bmi > mark.bmi ? 
+    `${john.fullName} BMI ${john.bmi}` : `${mark.fullName} BMI ${mark.bmi}`} is higher than ${john.bmi < mark.bmi ? ` ${john.bmi}` : `${mark.bmi}`}`)
