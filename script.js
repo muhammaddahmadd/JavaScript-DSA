@@ -203,26 +203,106 @@ TEST DATA 2: Dolphins scored 85, 54, and 41. Koalas scored 23, 34, and 27.
 //     console.log(`lifting weights repetition ${i+1}`)
 // }
 
-const newCatto = [
-    "merry",
-    "cuddles",
-    "purr",
-    100,
-    ["meeki","kamleshi"]
-]
-const years = [1990, 1998, 2008, 2005];
-const ages = []
 
-    for(let i = 0; i < years.length; i++){
-        // ages.push( years[i])
-        ages[i] =2025 - years[i]
-    }
-console.log(ages)
+// const years = [1990, 1998, 2008, 2005];
+// const ages = []
 
-const types = [];
-for (let i = 0 ; i< newCatto.length; i++){
-    console.log(newCatto[i], typeof newCatto[i] )
-    types[i] = typeof newCatto[i];
-    // types.push(typeof newCatto[i]);
+//     for(let i = 0; i < years.length; i++){
+//         // ages.push( years[i])
+//         ages[i] =2025 - years[i]
+//     }
+// console.log(ages)
+
+// const types = [];
+// for (let i = 0 ; i< newCatto.length; i++){
+//     console.log(newCatto[i], typeof newCatto[i] )
+//     types[i] = typeof newCatto[i];
+//     // types.push(typeof newCatto[i]);
+// }
+
+// const newCatto = [
+//     "merry",
+//     "cuddles",
+//     undefined,
+//     100,
+//     ["meeki", "kamleshi"]
+// ]
+// const types = [];
+// for (let i = 0; i < newCatto.length; i++) {
+   
+  
+//     if (typeof newCatto[i] === "number") break;
+//     console.log(newCatto[i])
+// }
+
+// const str = "3TUm3S11YasTmAYzCF3EaobwNZCC6Zvif75wmZMt38ua"
+// const newStr = "3TUm3S11YasTmAYzCF3EaobwNZCC6Zvif75wmZMt38ua"
+// if (str === newStr) console.log(true)
+
+// const newCatto = [
+//     "merry",
+//     "cuddles",
+
+//     100,
+//     ["meeki", "kamleshi"]
+// ]
+// for (let i = newCatto.length - 1; i>= 0; i--) {
+// console.log(newCatto[i])
+//  }
+
+// for(let x = 0; x <3 ; x++){
+//     for(let y = 0; y<=6; y++) {
+//         console.log(`rep ${x+1} of exercise ${y+1}`)
+//     }
+// }
+
+// for (let x = 1; x <4 ; x++){
+//     console.log(`---starting exercise ${x}`)
+//     for(let y = 1; y<6; y++) {
+//         console.log(`ex num :${x} rep number ${y}`)
+//     }
+// }
+//while loop
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+// console.log(dice)
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
 
+/* Write your code below. Good luck! 🙂 */
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
+// alert(bills.length)
+const tips = [];
+const totals =[];
+for (let i = 0; i <bills.length; i++){
+    tips[i] = calcTip(bills[i]);
+    totals[i] = tips[i] + bills[i];
+}
+
+console.log(tips)
+console.log(totals)
+
+//bonus
+
+const calcAverage = function(arr){
+    let sum = 0;
+   for (let i =0; i < arr.length; i++){
+    // sum = sum + arr[i]
+    sum += arr[i];
+   }
+    return sum/arr.length;
+}
+const result = calcAverage(totals);
+console.log(result)
+
+
+
+// const test = [1,2,3,4];
+// let sum1 =0;
+// for (let i =0; i<test.length; i++){
+//     sum1 = sum1 + test[i]
+   
+// } console.log(sum1)
