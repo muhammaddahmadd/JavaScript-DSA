@@ -173,26 +173,56 @@ TEST DATA 2: Dolphins scored 85, 54, and 41. Koalas scored 23, 34, and 27.
 
 
 
-const mark = {
-    fullName: "Mark Miller",
-    mass: 78,
-    height: 1.69,
-    calcBMI: function () {
-        this.bmi = this.mass / (this.height * this.height)
-        return this.bmi
+// const mark = {
+//     fullName: "Mark Miller",
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function () {
+//         this.bmi = this.mass / (this.height * this.height)
+//         return this.bmi
+//     }
+// }
+// const john = {
+//     fullName: "John Smith",
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function () {
+//         this.bmi = this.mass / (this.height * this.height)
+//         return this.bmi
+//     }
+// }
+
+// console.log(john.calcBMI())
+// console.log(mark.calcBMI())
+// console.log(`${john.bmi > mark.bmi ? 
+//     `${john.fullName} BMI ${john.bmi}` : `${mark.fullName} BMI ${mark.bmi}`} is higher than ${john.bmi < mark.bmi ? ` ${john.bmi}` : `${mark.bmi}`}`)
+
+
+
+// for (let i = 0 ; i < 10; i++) {
+//     console.log(`lifting weights repetition ${i+1}`)
+// }
+
+const newCatto = [
+    "merry",
+    "cuddles",
+    "purr",
+    100,
+    ["meeki","kamleshi"]
+]
+const years = [1990, 1998, 2008, 2005];
+const ages = []
+
+    for(let i = 0; i < years.length; i++){
+        // ages.push( years[i])
+        ages[i] =2025 - years[i]
     }
-}
-const john = {
-    fullName: "John Smith",
-    mass: 92,
-    height: 1.95,
-    calcBMI: function () {
-        this.bmi = this.mass / (this.height * this.height)
-        return this.bmi
-    }
+console.log(ages)
+
+const types = [];
+for (let i = 0 ; i< newCatto.length; i++){
+    console.log(newCatto[i], typeof newCatto[i] )
+    types[i] = typeof newCatto[i];
+    // types.push(typeof newCatto[i]);
 }
 
-console.log(john.calcBMI())
-console.log(mark.calcBMI())
-console.log(`${john.bmi > mark.bmi ? 
-    `${john.fullName} BMI ${john.bmi}` : `${mark.fullName} BMI ${mark.bmi}`} is higher than ${john.bmi < mark.bmi ? ` ${john.bmi}` : `${mark.bmi}`}`)
