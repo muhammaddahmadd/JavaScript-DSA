@@ -273,30 +273,30 @@ const calcTip = function (bill) {
 
 /* Write your code below. Good luck! 🙂 */
 
-const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
-// alert(bills.length)
-const tips = [];
-const totals =[];
-for (let i = 0; i <bills.length; i++){
-    tips[i] = calcTip(bills[i]);
-    totals[i] = tips[i] + bills[i];
-}
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52]
+// // alert(bills.length)
+// const tips = [];
+// const totals =[];
+// for (let i = 0; i <bills.length; i++){
+//     tips[i] = calcTip(bills[i]);
+//     totals[i] = tips[i] + bills[i];
+// }
 
-console.log(tips)
-console.log(totals)
+// console.log(tips)
+// console.log(totals)
 
 //bonus
 
-const calcAverage = function(arr){
-    let sum = 0;
-   for (let i =0; i < arr.length; i++){
-    // sum = sum + arr[i]
-    sum += arr[i];
-   }
-    return sum/arr.length;
-}
-const result = calcAverage(totals);
-console.log(result)
+// const calcAverage = function(arr){
+//     let sum = 0;
+//    for (let i =0; i < arr.length; i++){
+//     // sum = sum + arr[i]
+//     sum += arr[i];
+//    }
+//     return sum/arr.length;
+// }
+// const result = calcAverage(totals);
+// console.log(result)
 
 
 
@@ -306,3 +306,177 @@ console.log(result)
 //     sum1 = sum1 + test[i]
    
 // } console.log(sum1)
+
+
+// const data = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9 ,5];
+
+
+// let filtered = data.filter(x => typeof (x) !== "string") 
+// console.log(Number(Math.max(filtered)))
+// console.log(Math.min(filtered))
+// const amplitudeCalc = function(arr){
+
+//     let filtered = arr.filter(x=> typeof(x) !== "string") 
+//     console.log(filtered)
+//     let max = filtered[0];
+//     let min = filtered[0];
+//     for (let i = 0; i < filtered.length; i++){
+//         const curr = filtered[i]
+//       if (curr > max) max = curr;
+//       if (curr < min) min = curr
+//     }
+//     console.log("min:", min)
+//     console.log("max:", max)
+//     return max - min;
+// }
+// const result = amplitudeCalc(data)
+// console.log(result)
+
+
+
+// const printForcast = function (arr){
+//     let str = ""
+//     for(let i =0; i < arr.length; i++){
+//         str = str + `... ${arr[i]}C in ${i + 1} days...`
+//         // console.log(str)
+//     }
+   
+//     return str;
+// }
+// const test_data1 = [17, 21, 23]
+// const rslt = printForcast(test_data1);
+// console.log(rslt)
+
+
+
+
+'use strict';
+
+/*
+console.log(document.querySelector('.message').textContent);
+document.querySelector('.message').textContent = '🎉 Correct Number!';
+
+document.querySelector('.number').textContent = 13;
+document.querySelector('.score').textContent = 10;
+
+document.querySelector('.guess').value = 23;
+console.log(document.querySelector('.guess').value);
+*/
+
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
+let score = 20;
+let highscore = 0;
+
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
+
+document.querySelector('.check').addEventListener('click', function () {
+  const guess = Number(document.querySelector('.guess').value);
+  console.log(guess, typeof guess);
+
+  // When there is no input
+  if (!guess) {
+    // document.querySelector('.message').textContent = '⛔️ No number!';
+    displayMessage('⛔️ No number!');
+
+    // When player wins
+  } else if (guess === secretNumber) {
+    // document.querySelector('.message').textContent = '🎉 Correct Number!';
+    displayMessage('🎉 Correct Number!');
+    document.querySelector('.number').textContent = secretNumber;
+
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
+
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
+
+    // When guess is wrong
+  } else if (guess !== secretNumber) {
+    if (score > 1) {
+      // document.querySelector('.message').textContent =
+      // guess > secretNumber ? '📈 Too high!' : '📉 Too low!';
+      displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      // document.querySelector('.message').textContent = '💥 You lost the game!';
+      displayMessage('💥 You lost the game!');
+      document.querySelector('.score').textContent = 0;
+    }
+  }
+
+  //   // When guess is too high
+  // } else if (guess > secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = '📈 Too high!';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = '💥 You lost the game!';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+
+  //   // When guess is too low
+  // } else if (guess < secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = '📉 Too low!';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = '💥 You lost the game!';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  // }
+});
+
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+
+  // document.querySelector('.message').textContent = 'Start guessing...';
+  displayMessage('Start guessing...');
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = '';
+
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+});
+
+///////////////////////////////////////
+// Coding Challenge #1
+
+/* 
+Implement a game rest functionality, so that the player can make a new guess! Here is how:
+
+1. Select the element with the 'again' class and attach a click event handler
+2. In the handler function, restore initial values of the score and secretNumber variables
+3. Restore the initial conditions of the message, number, score and guess input field
+4. Also restore the original background color (#222) and number width (15rem)
+
+GOOD LUCK 😀
+*/
+
+
+// const reset = document.querySelector(".again")
+
+function calcMid(index1, index2) {
+  const totalMonths = 12;
+  let diff =0;
+  if(index1 !== 0 && index1 > index2) {
+    const remaing = totalMonths - index1;
+    diff = remaing + index2;
+  } else {
+    diff = index2 - index1;
+  }
+
+
+  return Math.abs(diff);
+}
+
+const rslt = calcMid(11, 0)
+console.log(rslt)
