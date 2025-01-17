@@ -525,3 +525,14 @@ function check() {
   console.log(rana)// it should give me the modified value of rana
 }
 check();
+
+
+function randomTesting() {
+  const fn = "Muhammad Ahmad"
+  console.log(`${fn} is my name`)
+}
+
+randomTesting()
+
+// var me = "Ahmad";
+// let job = ""
