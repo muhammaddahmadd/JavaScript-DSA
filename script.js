@@ -480,3 +480,48 @@ function calcMid(index1, index2) {
 
 const rslt = calcMid(11, 0)
 console.log(rslt)
+
+
+
+// const first = () => {
+//   let a =10;
+//   const b = second(5, 10) 
+//   a +=b;
+//   return a;
+// }
+
+// function second(x,y){
+//   var c =2;
+//   return c;
+// }
+
+// const v = first()
+// console.log(v)
+
+function calc(x) {
+  const age = 1998 - x;
+  // console.log(firstName)
+  return age;
+}
+
+
+const firstName = "Ahmad"
+calc(2025) 
+
+
+const named = "Ahmad" 
+if (true) {
+  const named = "Rana";
+  console.log(named)
+}
+
+
+function check() {
+  let rana = "employed" 
+  if (true) {
+    rana = "unemployed"
+  }
+
+  console.log(rana)// it should give me the modified value of rana
+}
+check();
