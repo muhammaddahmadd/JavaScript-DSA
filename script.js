@@ -536,3 +536,69 @@ randomTesting()
 
 // var me = "Ahmad";
 // let job = ""
+
+//working on temporal dead zone
+
+// if(!cart) deleteCart();
+
+// cosnt cart = "some data exists" // unexpected uidentifier
+// let cart = "some data exists" // throws a reference errrior
+
+function deleteCart(){
+  console.log("Deleting everything in the cart...")
+}
+
+
+//testing window object
+
+
+const a = 10;
+var b = 11;
+let c = 9;
+
+console.log(b === window.b)// true
+
+const calcAgee = function(bY) {
+  console.log(2025-bY);
+  console.log(this)
+}
+
+calcAgee(1998)
+
+
+// const cla = birthY => {
+//   console.log(this)
+// }
+// cla()
+
+const iioi = {
+  fn: "khan",
+  clc : function(){
+    console.log(this.fn)
+
+    const nn = function(){
+      console.log(this.fn)
+    }.bind(this)
+    nn()
+  }
+}
+
+iioi.clc()
+
+
+const person = {
+  firstName: "Muhammad",
+  lastName : "Khan",
+  langs: ["Eng", "Urdu", "JavaScript"]
+}
+
+
+
+
+
+// const newPerson = { ...person }
+const newPerson = structuredClone(person)
+newPerson.lastName = "ahmad"
+newPerson.langs.push("Html")
+console.log(person)
+console.log(newPerson)
