@@ -602,3 +602,11 @@ newPerson.lastName = "ahmad"
 newPerson.langs.push("Html")
 console.log(person)
 console.log(newPerson)
+
+
+                              
+
+
+
+
+
