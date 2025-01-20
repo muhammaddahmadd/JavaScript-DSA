@@ -651,6 +651,11 @@ const restaurant = {
   order: function(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
+orderDelivery : function(obj){
+  const { orderedItems: items, orderAmount: amount, deliveryAddress: address } = obj;
+ return `total amount for these ${items} is ${amount} and is delivered at ${address}` 
+},
+
   openingHours: {
     thu: {
       open: 12,
@@ -667,20 +672,42 @@ const restaurant = {
   },
 };
 
+const rslt = restaurant.orderDelivery({
+  orderedItems: ["fries", "Coke", "Fried Chicken", "Burger"],
+  orderAmount: 1290,
+  deliveryAddress: "House #96, Madina townn"
+})
+console.log(rslt)
+const {name, openingHours, categories} = restaurant;
+const {name: restaurantName, openingHours : hours, categories: tags} = restaurant;
+console.log(restaurantName, hours, tags);
 
-const [first, , second] = restaurant.categories;
-console.log(first, second)
+
+//mutautng variables
+
+let a = 100;
+let b = 120;
+const obj = {a: 90, b: 67};
+({a, b} = obj)
+console.log(a,b)
+
+//nested objects
+
+
+
+// const [first, , second] = restaurant.categories;
+// console.log(first, second)
 
 // const [a, b, c] = [1, 2, 3]
 // console.log(a)
  
 
 
-const umer = {
-  nft : ["orcs", "degods","punguns", "dragon", "jikan"]
-}
+// const umer = {
+//   nft : ["orcs", "degods","punguns", "dragon", "jikan"]
+// }
 
-let [main, ,secondary] = umer.nft;
+// let [main, ,secondary] = umer.nft;
 // console.log(main, secondary)
 
 // const temp = main;
@@ -690,9 +717,9 @@ let [main, ,secondary] = umer.nft;
 
 
 
-[main, secondary] = [secondary, main];
+// [main, secondary] = [secondary, main];
 
-console.log(main, secondary)
+// console.log(main, secondary)
 
 // receive 2 return values
 const [starter, mainMeal] = restaurant.order(2, 1)
