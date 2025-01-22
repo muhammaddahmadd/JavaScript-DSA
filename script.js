@@ -652,7 +652,7 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
   },
 orderDelivery : function(obj){
-  const { orderedItems: items, orderAmount: amount, deliveryAddress: address } = obj;
+  const { orderedItems: items, orderAmount: amount, deliveryAddress: address } = obj;// we destructured here
  return `total amount for these ${items} is ${amount} and is delivered at ${address}` 
 },
 
@@ -670,8 +670,35 @@ orderDelivery : function(obj){
       close: 24,
     },
   },
+
+  orderPasta: function(...arr){
+    console.log(`You ordered pasta which is made from these ingredients: ${arr.map(x=>x)}`)
+  },
+  orderDrink: function(mainDrink, ...others) {
+    console.log(mainDrink);
+    console.log(others)
+  }
 };
 
+// const userInput = [prompt("ing 1"), prompt("ing 2") ,prompt("ing 3")]
+// console.log(userInput)
+// restaurant.orderPasta(userInput)
+
+// const [, pasta, ...restFood] = [...restaurant.mainMenu, ...restaurant.starterMenu]
+// console.log(restFood)
+
+
+const newRestaurant = {...restaurant, CEO: "Muhammad Ahmad", foundedIn : 2005}
+const nonAlcholicDrinks = ["7up", "Big-Apple", "Fanta"]
+restaurant.orderDrink("Sting",...nonAlcholicDrinks)
+
+newRestaurant.name = "The arabian cusinie";
+// console.log("og restuarnt:", restaurant )
+// console.log("new restuarnt:",newRestaurant)
+
+
+const newMenu = [...restaurant.starterMenu, "fries" ]
+// console.log(newMenu)
 const rslt = restaurant.orderDelivery({
   orderedItems: ["fries", "Coke", "Fried Chicken", "Burger"],
   orderAmount: 1290,
@@ -680,8 +707,11 @@ const rslt = restaurant.orderDelivery({
 console.log(rslt)
 const {name, openingHours, categories} = restaurant;
 const {name: restaurantName, openingHours : hours, categories: tags} = restaurant;
-console.log(restaurantName, hours, tags);
+// console.log(restaurantName, hours, tags);
 
+
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu]
+// console.log(menu)
 
 //mutautng variables
 
@@ -689,7 +719,7 @@ let a = 100;
 let b = 120;
 const obj = {a: 90, b: 67};
 ({a, b} = obj)
-console.log(a,b)
+// console.log(a,b)
 
 //nested objects
 
@@ -723,18 +753,75 @@ console.log(a,b)
 
 // receive 2 return values
 const [starter, mainMeal] = restaurant.order(2, 1)
-console.log(starter)
+// console.log(starter)
 
 const arr = [1,2,[5,6]]
-console.log(arr.flat())
+// console.log(arr.flat())
 
 
 const randomArr = [1,2,3,[4,5,6, [7, 8]]]
 const [x, , , [y, , , [, z]]] = randomArr;
-console.log(x, y, z)// 1, 4,8
+// console.log(x, y, z)// 1, 4,8
 
 
 //default values
 const [p=0,q=1,r=2]= [8,9];
 
-console.log(p,q, r)// 892
+// console.log(p,q, r)// 892
+
+
+// const dev = {
+//   lang :"JavaScript",
+//   techStack : "frontend developer",
+//   framework : "React",
+//   stylingFramework : "Tailwind Css"
+// }
+
+
+// const anotherDev = { ...dev, lang: "Pyhton", techStack : "backend dev", framework: "django", }
+// anotherDev.name = "Shehroz"
+// const begineerDev = anotherDev;
+// begineerDev.name = "Chitta"
+// console.log(begineerDev)
+
+// console.log(anotherDev)
+// const 
+
+
+
+
+// const add = function(...nums) {
+  
+//   const total = nums.length;
+//   let sum = 0;
+//   for(let i =0; i <total; i++ ){
+//     let temp = nums[i];
+//     // console.log(i)
+//    sum = temp + sum;
+  
+//   }
+//   return sum;
+// }
+// const mults = [12, 14, 19]
+// const storedRslt = add(mults)
+// console.log(storedRslt)
+
+// restaurant.orderDelivery? restaurant.orderDrink("coke"): "Method doesnt exist"
+
+// restaurant.orderDrink("coke") || "Method doesnt exist"
+// restaurant.orderDelivery && restaurant.orderDrink("coke") 
+
+
+
+const test = {
+  eng: "write a summary",
+  compulsory: {
+    totalPassingGrades : 100,
+    reqPassingGrades : 60,
+    // subj : ['maths', "computer"]
+  }
+}
+
+
+const iop = test.compulsory?.subj? true :'property doesnt exist';
+console.log(iop)
