@@ -605,7 +605,7 @@ const gameEvents = new Map([
 // const events = new Set(gameEvents.entries());
 // console.log(events)
 const events = new Set([...gameEvents.values()])
-console.log(events)
+// console.log(events)
 
 // 2. After the game has finished, is was found that the yellow card from minute 64 was unfair.So remove this event from the game events log.
 // events.delete("🔶 Yellow card");
@@ -618,7 +618,7 @@ gameEvents.delete(64)
 
 
 const popped = [...gameEvents.keys()].pop()
-console.log(`An event happened, on average, every ${popped/gameEvents.size} minutes`)
+// console.log(`An event happened, on average, every ${popped/gameEvents.size} minutes`)
 
 
 
@@ -637,7 +637,7 @@ const luna = "ZuNaIraAhmad";
 
 const smoll = luna.toLowerCase();
 const fixed = smoll[0].toUpperCase() + smoll.slice(1);
-console.log(fixed)
+// console.log(fixed)
 
 
 const user = "rAnaahmad131@gmail.com\n";
@@ -645,7 +645,7 @@ const email = user.toLowerCase();
 
 
 const x = "Zunaira Ahmad".split(" ")
-console.log(x[1])
+// console.log(x[1])
 
 
 // function capt(name){
@@ -703,7 +703,7 @@ function getData(str) {
 
     const q = str.split("_")
     const n = [q[0].toLowerCase() + q[1].slice(0, 1).toUpperCase() + q[1].slice(1)].join("")
-    console.log(n)
+    // console.log(n)
     
 }
 
@@ -714,14 +714,206 @@ getData("calculate_AGE")
 // console.log(q.trim(""));
 
 
-const rnArr = "  zuna_  Maddy  ";
-const intoArr = rnArr.trim().split("_")
-console.log(intoArr)
+// const rnArr = "  zuna_  Maddy  ";
+// const intoArr = rnArr.trim().split("_")
+// console.log(intoArr)
 
 
-for(const [k,v] of intoArr.entries()) {
+// for (const v of intoArr) {
 
+  
+//   console.log(q)
+//     // console.log(q[0].toLowerCase() + q[1].replace([1][0], [1][0].toUpperCase()))
   
     
    
+// }
+
+
+
+// function check(str) {
+// // const checked = typeof str;
+// //     if(checked === "string") return true
+
+//     const v = typeof str === "string"? true: false;
+//     return v;
+// }
+
+// console.log(check("khan"))
+// console.log(check(10))
+
+const bookings = []
+const flight = "LHR809"
+const ahmad = {
+    name: "Muhammad Ahmad",
+    age: 27,
+    cnic: 3650224154909,
 }
+const createBooking = function(flightNum, passenger) {
+    flightNum = "PSH821";
+    passenger.name = "Mr." + passenger.name;
+
+    if (passenger.cnic === 3650224154909) alert("Cleared to be on board")
+    else alert("Wrong ID")
+
+}
+
+
+// createBooking(flight, ahmad)
+// console.log(flight);
+// console.log(ahmad)
+
+// function count() {
+//     let conter = 0;
+//     return function(){
+//         conter++;
+//         return conter
+//     }
+// }
+// console.log(count())
+
+const oneWord = function(str){
+    return str.replace(/ /g, "").toLowerCase();
+}
+
+function upperFirstWord(str){
+
+    const [first, ...second] = str.split(" ");
+
+    return [first.toUpperCase(), ...second].join(" ")
+
+
+}
+
+
+function transform(str, fn) { //hih order fun
+    console.log(`orignal String: ${str}`)
+    console.log(`Trnasformed string: ${fn(str)}`)
+    console.log(`Transformed by : ${fn.name}`)
+}
+
+transform("Ahmad is a js dev", upperFirstWord) 
+
+const xyz = ()=> console.log("hi")
+const xq = ["a", "b", "c"].forEach(xyz)
+
+const greet = (greeting) => {
+    return function(name){
+        console.log(`${greeting} ${name}`)
+    }
+}
+
+greet("Hi")("Ahmad")
+
+
+
+
+
+
+const pia = {
+    airline : "Pakistab Airlies",
+    code : "PK",
+    bookings : [],
+    book(flightNum, name) {
+        console.log(`${name} booked a seat on ${this.airline} flight  #${this.code}${flightNum}`)
+        this.bookings.push({
+            flight: `${this.code}${flightNum}`,
+            name,
+        })
+    }
+}
+
+const shaheen = {
+    airline: "Shaheen Airlines",
+    code : "SHA",
+    bookings: [],
+    check(){
+        console.log(this.bookings)
+    }
+}
+
+
+const book = pia.book;
+// pia.book(234, "Rana")
+// book(909, "rana")// bcz it is a regular function call
+// book.call(shaheen, 303, "Khan")
+// console.log(shaheen.check())
+
+
+// const newBook = book.bind(shaheen);
+// newBook(88, "JKT")
+
+// const shaheen23 = book.bind(shaheen, 606, "Muhammad ")
+// shaheen23()
+
+
+// pia.planes = 105;
+// pia.buyPlanes = function(){
+//     console.log(this)
+//     this.planes++;
+//     console.log(this.planes)
+// }
+
+// const btn = document.querySelector(".buy");
+// btn.addEventListener("click", pia.buyPlanes.bind(pia))
+
+
+// function addTax(rate) {
+//     return function(value){
+//         return value + value * rate;
+//     }
+// }
+
+// console.log(addTax(0.1)(200))
+
+// Coding Challenge #1
+
+/* 
+Let's build a simple poll app!
+
+A poll has a question, an array of options from which people can choose, and an array with the number of replies for each option. This data is stored in the starter object below.
+
+Here are your tasks:
+
+1. Create a method called 'registerNewAnswer' on the 'poll' object. The method does 2 things:
+  1.1. Display a prompt window for the user to input the number of the selected option. The prompt should look like this:
+        What is your favourite programming language?
+        0: JavaScript
+        1: Python
+        2: Rust
+        3: C++
+        (Write option number)
+  
+  1.2. Based on the input number, update the answers array. For example, if the option is 3, increase the value AT POSITION 3 of the array by 1. Make sure to check if the input is a number and if the number makes sense (e.g answer 52 wouldn't make sense, right?)
+2. Call this method whenever the user clicks the "Answer poll" button.
+3. Create a method 'displayResults' which displays the poll results. The method takes a string as an input (called 'type'), which can be either 'string' or 'array'. If type is 'array', simply display the results array as it is, using console.log(). This should be the default option. If type is 'string', display a string like "Poll results are 13, 2, 4, 1". 
+4. Run the 'displayResults' method at the end of each 'registerNewAnswer' method call.
+
+HINT: Use many of the tools you learned about in this and the last section 😉
+
+BONUS: Use the 'displayResults' method to display the 2 arrays in the test data. Use both the 'array' and the 'string' option. Do NOT put the arrays in the poll object! So what shoud the this keyword look like in this situation?
+
+BONUS TEST DATA 1: [5, 2, 3]
+BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
+
+GOOD LUCK 😀
+*/
+const poll = {
+    question: 'What is your favourite programming language?',
+    options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+    // This generates [0, 0, 0, 0]. More in the next section 😃
+    answers: new Array(4).fill(0)
+}
+poll.registerNewAnswer = function () {
+    const res = Number(prompt(
+        `${this.question}\n ${this.options.join('\n')}\n(Write option number)`
+    ))
+     (typeof res === Number && res <= this.answers.length) 
+        this.answers[res]++;
+    
+}
+
+
+poll.registerNewAnswer()
+
+console.log(poll.answers)
