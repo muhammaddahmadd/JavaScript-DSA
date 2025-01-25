@@ -908,7 +908,7 @@ poll.registerNewAnswer = function () {
     const res = Number(prompt(
         `${this.question}\n ${this.options.join('\n')}\n(Write option number)`
     ))
-     (typeof res === Number && res <= this.answers.length) 
+     typeof res === Number && res <= this.answers.length
         this.answers[res]++;
     
 }
@@ -917,3 +917,8 @@ poll.registerNewAnswer = function () {
 poll.registerNewAnswer()
 
 console.log(poll.answers)
+
+const btn = document.querySelector(".buy");
+btn.addEventListener("click", function(){
+    btn.innerHTML = "Clicked!"
+})
