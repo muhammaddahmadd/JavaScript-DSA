@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
     "singleQuote": true,
     "arrowParens": "avoid"
+=======
+  "singleQuote": true,
+  "arrowParens": "avoid"
+>>>>>>> 6316a4d (Wokin on Arrays)
 }
