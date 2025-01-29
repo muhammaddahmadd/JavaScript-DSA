@@ -1207,3 +1207,29 @@ if(name === "Ahmad"
 // // Interval Example
 // const intervalID = setInterval(() => console.log("Repeating..."), 1000);
 // setTimeout(() => clearInterval(intervalID)); // Stops the interval after 5 seconds
+
+
+ console.log("first")
+const newTime = setTimeout(()=> {
+    console.log(`Second`)
+}, 3000)
+
+const promise = new Promise((resolve, reject) => {
+    const v = true;
+    if (v) { // Using the variable v instead of hardcoded true
+        console.log(`All good to go`);
+        resolve("Success!"); // Resolving the promise
+    } else {
+        console.log("We dropped out");
+        reject("Error occurred"); // Rejecting in case of failure
+    }
+});
+
+// Handling the promise
+promise
+    .then((message) => {
+        console.log("Promise resolved with:", message);
+    })
+    .catch((error) => {
+        console.log("Promise rejected with:", error);
+    });
