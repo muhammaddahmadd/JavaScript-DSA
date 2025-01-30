@@ -1323,7 +1323,7 @@ class PersonCl  {
     set name(n) {
         console.log(n)
         if(n.includes(" ")) this._name = n;
-        alert(`${n} is not a full name`)
+        // alert(`${n} is not a full name`)
     }
 
     get name(){
@@ -1373,3 +1373,184 @@ console.log(rana)
 
 // account.balance = 100;
 // console.log(account.balance)
+
+
+const PersonProto = {
+    calcAge(){
+        console.log(2025 - this.bY)
+    },
+    init(fn, bY){
+        this.fn = fn;
+        this.bY = bY;
+    }
+}
+
+
+
+const rana1 = Object.create(PersonProto);
+console.log(rana1)
+
+// rana1.name = "Muhammad Ahmad";
+// rana1.age = 1998;
+// rana1.calcAge()
+
+console.log(rana1.__proto__ === PersonProto)
+
+const zuni = Object.create(PersonProto)
+zuni.init("Zunaina", 2000)
+zuni.calcAge()
+
+
+
+
+// Coding Challenge #1
+
+/* 
+1. Use a constructor function to implement a Car. A car has a make and a speed property. The speed property is the current speed of the car in km/h;
+2. Implement an 'accelerate' method that will increase the car's speed by 10, and log the new speed to the console;
+3. Implement a 'brake' method that will decrease the car's speed by 5, and log the new speed to the console;
+4. Create 2 car objects and experiment with calling 'accelerate' and 'brake' multiple times on each of them.
+
+DATA CAR 1: 'BMW' going at 120 km/h
+DATA CAR 2: 'Mercedes' going at 95 km/h
+
+GOOD LUCK 😀
+*/
+// Coding Challenge #2
+
+/* 
+1. Re-create challenge 1, but this time using an ES6 class;
+2. Add a getter called 'speedUS' which returns the current speed in mi/h (divide by 1.6);
+3. Add a setter called 'speedUS' which sets the current speed in mi/h (but converts it to km/h before storing the value, by multiplying the input by 1.6);
+4. Create a new car and experiment with the accelerate and brake methods, and with the getter and setter.
+
+DATA CAR 1: 'Ford' going at 120 km/h
+
+GOOD LUCK 😀
+*/
+
+// const Car1 = function(make, speed){
+// this.make = make;
+// this.speed = speed;
+// }
+
+
+// Car1.prototype.accelerate = function (){
+//     this.speed += 10;
+// }
+
+// Car1.prototype.brake = function () {
+//     this.speed -= 5;
+// }
+
+
+class Car2 {
+    constructor(make, speed) {
+        this.make = make;
+        this.speed = speed;
+    }
+
+    accelerate() {
+        this.speed += 10;
+    }
+
+    brake() {
+        this.speed -= 5;
+    }
+
+     get speedUs(){
+        this.speed = this.speed/1.6;
+        return this.speed;
+     }
+
+     set speedUs(n){
+        this.speed = this.speed * 1.6;
+     }
+}
+
+
+const ford = new Car2("ford", 120);
+ford.accelerate()
+console.log(ford.speedUs)
+ford.speedUs= 50;
+console.log(ford)
+
+
+const og = {
+    name: "orginal",
+    brand : "Hp"
+}
+const copy = structuredClone(og);
+copy.brand = "Dell"
+console.log(og)
+console.log(copy)
+
+
+let [a,b] = [1, 5];
+[a,b] = [b,a]
+console.log(a)
+
+
+const randomObj = {
+    name : "Zizi",
+    age : 20,
+    gamesPlayed : ["Pubg", "Outlast", "Pokemon"],
+    birthYear(){
+      return  2025 - this.age;
+    },
+    siblings : 0
+}
+
+
+// console.log(randomObj?.siblings)
+
+
+function counter(){
+  let x = 0
+ 
+    return function(){
+        x++;
+    }
+}
+const z = counter()
+const one = z()//0
+console.log(one)
+z()//1
+z()//2
+
+const greet = function (greeting) {
+    return function (name) {
+        console.log(`${greeting}, ${name}!`);
+    };
+};
+
+// Calling the function
+greet("Hi")("Ahmad"); // Output: Hi, Ahmad!
+console.log(greet.name)
+
+
+
+
+
+let counte = (function () {
+    let count = 0;
+    return {
+        increment: () => ++count,
+        getCount: () => count
+    };
+})();
+
+console.log(counte.increment()); // 1
+console.log(counte.getCount()); // 1
+
+
+
+ 
+// const promise = new
+console.log('Start');  // 1. Immediately prints to console
+
+setTimeout(() => {
+    console.log('Inside Timeout');  // 3. Runs after 2 seconds
+}, 2000);
+
+console.log('End');  // 2. Immediately prints to console
