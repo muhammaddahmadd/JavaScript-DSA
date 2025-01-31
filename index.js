@@ -1554,3 +1554,6 @@ setTimeout(() => {
 }, 2000);
 
 console.log('End');  // 2. Immediately prints to console
+
+
+
