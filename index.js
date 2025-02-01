@@ -1547,13 +1547,99 @@ console.log(counte.getCount()); // 1
 
  
 // const promise = new
-console.log('Start');  // 1. Immediately prints to console
+// console.log('Start');  // 1. Immediately prints to console
 
-setTimeout(() => {
-    console.log('Inside Timeout');  // 3. Runs after 2 seconds
-}, 2000);
+// setTimeout(() => {
+//     console.log('Inside Timeout');  // 3. Runs after 2 seconds
+// }, 2000);
 
-console.log('End');  // 2. Immediately prints to console
+// console.log('End');  // 2. Immediately prints to console
+
+
+// https://restcountries.eu/rest/v2/
+// https://countries-api-836d.onrender.com/countries/
+// https://restcountries.com/v2/name/portugal
+
+
+// const btn = document.querySelector(".btn-country");
+// const countriesContainer = document.querySelector(".countries")
+
+// // const request = new XMLHttpRequest();
+// // request.open("GET", "https://restcountries.com/v2/name/portugal")
+// // request.send()
+// // console.log(this.responseText)
+
+
+// request.addEventListener("load", function(){
+//     console.log(this.responseText);
+//     const data = JSON.parse(this.responseText)[0]
+//     console.log(data)
+//     console.log(data.currencies[0].name)
+//     const html = ` <article class="country">
+//           <img class="country__img" src='${data.flag}'/>
+//           <div class="country__data">
+//             <h3 class="country__name">${data.name}</h3>
+//             <h4 class="country__region">${data.region}</h4>
+//             <p class="country__row"><span>👫</span>${(+ data.population / 1000000).toFixed(1)}</p>
+//             <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+//             <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
+//           </div>
+//         </article>`;
+
+//         countriesContainer.insertAdjacentHTML("beforeend", html)
+
+// }
+
+
+// )
 
 
 
+
+// setTimeout(()=> {
+//     console.log("One")
+//     setTimeout(() => {
+//         console.log("Two")
+//         setTimeout(() => {
+//             console.log("Three")
+//         }, 1000)
+//     }, 1000)
+  
+// }, 1000)
+
+// const request = new XMLHttpRequest();
+// request.open("GET", "https://restcountries.com/v2/name/portugal")
+// request.send()
+// console.log(this.responseText)
+
+
+// const request = fetch("https://restcountries.com/v2/name/portugal");
+// console.log(request)
+
+// const getCountryData = function(country) {
+//     fetch(`https://restcountries.com/v2/name/${country}`).then((res)=> res.json()).then(data=> console.log(data))
+// } 
+
+// getCountryData("portugal")
+
+const p = document.createElement("p");
+const body = document.querySelector("body")
+body.append(p)
+p.innerHTML = "This text gonna be replaced when real data comes from Api"
+p.style.fontSize = "40px";
+
+function changeText(a){
+    p.innerHTML = `Country ${a} is fetched from the given api`
+}
+
+const fetched = function(country){
+fetch(`https://restcountries.com/v2/name/${country}`).then((res)=> res.json()).then(data => {
+    changeText(data[0].name)
+    const cn = data[0].name;
+    console.log(data)
+    console.log(cn)
+
+})
+  
+}
+fetched("spain")
