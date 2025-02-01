@@ -1627,19 +1627,34 @@ const body = document.querySelector("body")
 body.append(p)
 p.innerHTML = "This text gonna be replaced when real data comes from Api"
 p.style.fontSize = "40px";
-
+const btn = document.createElement("button");
+p.prepend(btn);
+btn.textContent = "Test me"
 function changeText(a){
     p.innerHTML = `Country ${a} is fetched from the given api`
 }
 
-const fetched = function(country){
-fetch(`https://restcountries.com/v2/name/${country}`).then((res)=> res.json()).then(data => {
-    changeText(data[0].name)
-    const cn = data[0].name;
-    console.log(data)
-    console.log(cn)
+const fetched = function (country) {
+    let x; // ✅ Declare x in the outer scope
 
+    fetch(`https://restcountries.com/v2/name/${country}`)
+        .then((res) => res.json())
+        .then(data => {
+            x = setTimeout(() => {  // ✅ Assign x here
+                changeText(data[0].name);
+            }, 2000);
+        })
+        .catch(err => alert("Error: " + err))
+        .finally(() => {
+            setTimeout(() => {
+                if (x) clearTimeout(x); // Clears timeout after 1 second
+                console.log("Timeout cleared!");
+            }, 3000); // ✅ Clear timeout after 1 second
+        });
+};
+
+
+btn.addEventListener("click", function(){
+    fetched("spain")
+    this.innerHTML = "fetching..."
 })
-  
-}
-fetched("spain")
