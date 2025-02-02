@@ -1767,7 +1767,7 @@ Promise.reject(new Error("xyz")).catch(err => console.log(err))
 
 const getMyLocation = function(){
     return new Promise((resolve, reject)=> {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
+        navigator.geolocation.getCurrentPosition(position => resolve(position), fail => reject(fail));
     })
 }
 
@@ -1804,3 +1804,96 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 
 GOOD LUCK 😀
 */
+
+
+function createImage(imgPath){
+  return new Promise((resolve, reject)=> {
+      const img = document.createElement("img")
+      img.src = imgPath;
+
+      img.addEventListener("load", ()=> {
+          document.querySelector(".images").appendChild(img)
+          resolve(img)
+      })
+      img.addEventListener('error', () => {
+          reject(new Error('Failed to load image at ' + imgPath)); // Reject with error
+      });
+  })
+
+}
+
+createImage().then(res=> res.json()).catch(err=> console.log(err))
+
+
+const arr = [1,3,5,6];
+
+
+
+const date = new Date();
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const today = days[date.getDay()];
+
+const mins = 
+console.log(`Today is : ${today} \n Curren time is: ${date.toLocaleTimeString()}`)
+
+
+const gtD = function(para){
+    return fetch(`https://jsonplaceholder.typicode.com/${para}`).then(res=> {
+        console.log(res)
+        if(!res.ok) throw new Error(`error fetching data,${res.status}`)
+        return res.json();
+    })
+}
+
+
+const consume = (x)=>{
+    gtD(x).then(data=> console.log(data[0].title)).catch(err=> console.log(err))
+}
+consume("posts")
+
+
+async function whAmI(country) {
+ try {
+     const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+     const data = await res.json()
+     console.log([data])
+ }catch(err) {
+    console.log("error occured")
+ }
+}
+
+whAmI("spain")
+
+
+// function fetchData(url) {
+//     return fetch(url).then(res => res.json());
+// }
+
+(async function () {
+    const res = await Promise.race([
+        fetchData("https://restcountries.com/v2/name/spain"),
+        fetchData("https://restcountries.com/v2/name/pakistan"),
+        fetchData("https://restcountries.com/v2/name/italy")
+    ]);
+
+    console.log(res);
+})();
+
+
+const timeout = function(sec){
+    return new Promise(function (_, reject){
+        setTimeout(function(){
+            reject(new Error("Request took too long!!"))
+        }, sec * 1000)
+    })
+}
+
+const fetchData = fetch("https://restcountries.com/v2/name/spain");
+
+Promise.race([
+    fetchData,
+    timeout(0.15)
+])
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err.message));
