@@ -8,7 +8,6 @@ var addTwoNumbers = function (l1, l2) {
     const final = total.reverse();
     return final;
     
-
 };
 
 addTwoNumbers([1,5,3], [9,4,6])
